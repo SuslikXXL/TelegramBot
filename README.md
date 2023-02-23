@@ -1,15 +1,14 @@
-# TelegramBot
 import telebot
 from extensions import APIException, Convertor
 from config import TOKEN, exchanges
 import traceback
 
 exchanges = {
-    'Доллар': 'USD',
-    'Евро': 'EUR',
-    'Рубль': 'RUB'
+    'доллар': 'USD',
+    'евро': 'EUR',
+    'рубль': 'RUB'
 }
-TOKEN = "1596902621:AAEnMFCBOg02PDigS5fAERfgcdKYsuNwb-8"
+TOKEN = "6098541354:AAGKqyI92fA5UT5PnMJScOWovZVUot3lT5Y"
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -20,7 +19,7 @@ def start(message: telebot.types.Message):
 
 @bot.message_handler(commands=['values'])
 def values(message: telebot.types.Message):
-    text = 'Валюты:'
+    text = 'Доступные валюты:'
     for i in exchanges.keys():
         text = '\n'.join((text, i))
     bot.reply_to(message, text)
